@@ -1,27 +1,27 @@
-#include <stdlib.h>
+#include <unistd.h>
 
-int     *ft_range(int start, int end)
+int     *ft_rrange(int start, int end)
 {
 	int i = 0;
 	int len;
 	int *res;
-	
+
 	if (start <= end)
 		len = end - start + 1;
 	else
 		len = start - end + 1;
-	
+
 	res = (int *)malloc(sizeof(int) * len);
 	if (!res)
 		return NULL;
-
+	
 	while (i < len)
 	{
-		res[i] = start;
-		if (start < end)
-			start++;
+		res[i] = end;
+		if (end < start)
+			end++;
 		else
-			start--;
+			end--;
 		i++;
 	}
 	return (res);
