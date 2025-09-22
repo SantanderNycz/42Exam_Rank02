@@ -5,7 +5,7 @@ void ft_putchar(char c)
 	write (1, &c, 1);
 }
 
-void ft_itoa(int n)
+void ft_putnbr(int n)
 {
 	unsigned int nbr = n;
 	if (nbr == 0)
@@ -14,7 +14,7 @@ void ft_itoa(int n)
 		return;
 	}
 	if (nbr > 9)
-		ft_itoa(nbr / 10);
+		ft_putnbr(nbr / 10);
 	if (nbr > 0)
 	{
 		ft_putchar(nbr % 10 + 48);
@@ -33,7 +33,7 @@ int main(int ac, char **av)
 			c++;
 			i++;
 		}
-		ft_itoa(i);
+		ft_putnbr(i);
 		//write (1, &i, 1);
 	}
 	else
