@@ -16,8 +16,14 @@ char    **ft_split(char *str)
 {
 	int i = 0;
 	int j = 0;
-	int k = 0;
+	int start = 0;
+	int end = 0;
+	int len = 0;
 	int wc = 0;
+	char **out;
+
+	if (!str || !str[i])
+		return (NULL);
 
 	while (str[i])
 	{
@@ -29,22 +35,25 @@ char    **ft_split(char *str)
 			i++;
 	}
 	
-	char **out = (char **)malloc(sizeof(char *) * (wc + 1));
+	out = (char **)malloc(sizeof(char *) * (wc + 1));
 
 	i = 0;
 	while (str[i])
 	{
 		while (str[i] && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'))
 			i++;
-		j = i;
+		start = i;
 		while (str[i] && (str[i] != ' ' && str[i] != '\t' && str[i] != '\n'))
 			i++;
-		if (i > j)
+		end = i;
+		len = end - start;
+		if (end > start)
 		{
-			out[k] = (char *)malloc(sizeof(char) * ((i - j) + 1));
-			ft_strncpy(out[k++], &str[j], i - j);
+			out[j] = (char *)malloc(sizeof(char) * (len + 1));
+			ft_strncpy(out[j], &str[start], len);
+			j++;
 		}
 	}
 	out[k] = NULL;
-	return (out;)
+	return (out);
 }
