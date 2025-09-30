@@ -1,4 +1,5 @@
-#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 char *ft_strncpy(char *s1, char *s2, int n)
 {
