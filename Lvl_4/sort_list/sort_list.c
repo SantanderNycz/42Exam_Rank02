@@ -43,7 +43,7 @@ t_list	*sort_list(t_list *lst, int (*cmp)(int, int))
 			lst = lst_start;
 		}
 		else
-			lst = lst_start;
+			lst = lst->next;
 	}
 	lst = lst_start;
 	return (lst);
