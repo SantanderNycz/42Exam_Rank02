@@ -2,8 +2,8 @@
 
 typedef struct	s_list
 {
-	int	data;
-	struct s_list *next;
+	int				data;
+	struct s_list	*next;
 }	t_list;
 
 void ft_swap(int *a, int *b)
@@ -13,16 +13,6 @@ void ft_swap(int *a, int *b)
 	tmp = *a;
 	*a = *b;
 	*b = tmp;
-}
-
-int asc(int a, int b)
-{
-	return (a <= b);
-}
-
-int desc(int a, int b)
-{
-	return (a >= b);
 }
 
 t_list	*sort_list(t_list *lst, int (*cmp)(int, int))
