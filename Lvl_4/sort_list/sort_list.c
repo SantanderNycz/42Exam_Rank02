@@ -4,7 +4,6 @@ typedef struct	s_list
 {
 	int	data;
 	struct s_list *next;
-
 }	t_list;
 
 void ft_swap(int *a, int *b)
@@ -45,6 +44,5 @@ t_list	*sort_list(t_list *lst, int (*cmp)(int, int))
 		else
 			lst = lst->next;
 	}
-	lst = lst_start;
 	return (lst);
 }
