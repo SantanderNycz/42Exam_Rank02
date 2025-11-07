@@ -1,11 +1,12 @@
 #include <stdlib.h>
-//#include "ft_list.h"
+#include "ft_list.h"
 
+/*
 typedef struct      s_list
 {
     struct s_list   *next;
     void            *data;
-}                   t_list;
+}                   t_list; */
 
 void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 {
@@ -25,4 +26,5 @@ void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 		cur = *begin_list;
 		ft_list_remove_if(&cur->next, data_ref, cmp);
 	}
+
 }
