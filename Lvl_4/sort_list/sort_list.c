@@ -34,5 +34,5 @@ t_list	*sort_list(t_list *lst, int (*cmp)(int, int))
 		else
 			lst = lst->next;
 	}
-	return (lst);
+	return (lst_start);
 }
