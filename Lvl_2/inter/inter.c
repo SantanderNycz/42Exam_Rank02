@@ -1,30 +1,29 @@
 #include <unistd.h>
 
-int main(int ac, char **av)
+int	iter(char *str, char c, int len)
 {
-    if (ac == 2)
-    {
-        int i = 0;
-        while (av[1][i])
-        {
-            while (av[2][j])
-            {
-                if (av[1][i] >= 'a' && av[1][i] <= 'z')
-                {
-                    av[1][i] -= 32;
-                    write(1, &av[1][i], 1);
-                }
-                else if (av[1][i] >= 'A' && av[1][i] <= 'Z')
-                {
-                    av[1][i] += 32;
-                    write(1, &av[1][i], 1);
-                }
-                else
-                    write(1, &av[1][i], 1);
-            }
-            i++;
-        }
-    }
-    write(1, "\n", 1);
-    return (0);
+	int	i = 0;
+
+	while (str[i] && (i < len || len == -1))
+		if (str[i++] == c)
+			return (1);
+	return (0);
+}
+
+int	main(int argc, char *argv[])
+{
+	int	i;
+
+	if (argc == 3)
+	{
+		i = 0;
+		while (argv[1][i])
+		{
+			if (!iter(argv[1], argv[1][i], i) && iter(argv[2], argv[1][i], -1))
+				write(1, &argv[1][i], 1);
+			i += 1;
+		}
+	}
+	write(1, "\n", 1);
+	return (0);
 }
